@@ -1,7 +1,8 @@
 # Node - Swagger
 
-### Uncomment "resolveJsonModule:true"
+## Step-by-step
+    Just uncomment "resolveJsonModule:true"
 
 ## Dependencies
-swagger-ui-express
-@types/swagger-ui-express -D
+    - swagger-ui-express
+    - @types/swagger-ui-express -D
