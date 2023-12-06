@@ -20,6 +20,14 @@ const products: ProductsDTO[] = [];
  *      description: Busca de um produto pelo nome
  *      summary: Busca de um produto pelo nome
  *      tags: ["Products"]
+ *      parameters: [
+ *          {
+ *              name: name
+ *              in: query
+ *              description: "Nome do produto para busca"
+ *              required: true
+ *          }
+ *      ]
  *      responses:
  *          200:
  *              description: OK
