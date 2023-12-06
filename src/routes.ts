@@ -13,6 +13,18 @@ interface ProductsDTO {
 
 const products: ProductsDTO[] = [];
 
+/**
+ * @swagger
+ * /v1/products/findByName:
+ *  get:
+ *      description: Busca de um produto pelo nome
+ *      summary: Busca de um produto pelo nome
+ *      tags: ["Products"]
+ *      responses:
+ *          200:
+ *              description: OK
+ */
+
 router.get("/products/findByName", (request, response) => {
     const { name } = request.query;
     const product = products.filter((p) => p.name.includes(String(name)));

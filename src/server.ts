@@ -1,21 +1,25 @@
 import express from "express";
+import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
 import { router } from "./routes";
 
-import swaggerDocs from "./swagger.json";
-
 const app = express();
-
 app.use(express.json());
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: 'API de manipulação de produtos com JSON DOCS',
+            version: '2.0.0'
+        }
+    },
+    apis: ['src/routes.ts'],
+};
 
-app.get("/terms", (request, response) => {
-    return response.json({
-        message: "Termos de Serviço",
-    });
-});
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+console.log(swaggerDocs);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use("/v1", router);
 app.listen(3000, () => {
